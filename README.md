@@ -46,6 +46,14 @@ To add db settings to settings.py, go to the directory where settings.py file is
  
 add - For adding settings and del - For removing settings.
 
+<h2>Search</h2>
+
+Search has been implemented using Haystack and Solr. You have to install Solr separately.
+http://archive.apache.org/dist/lucene/solr/3.6.2/apache-solr-3.6.2.tgz
+
+Please check haystack’s website for all the configuration and setup stuff. Schema.xml
+generation should be done. 
+
 <h2>Credits</h2>
 1. We have used <a href="http://getbootstrap.com/">bootstrap</a> extensively for website design. 
 Have a look at it.
