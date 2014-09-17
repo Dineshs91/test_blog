@@ -10,9 +10,6 @@
 		    <form class="form-signin" id="login_form" action="{% url 'login' %}" method="post">
 			    {% csrf_token %}
 				<h2>Please sign in</h2>
-			    <div id="msg" style="color:red;height:30px;padding-top:5px;">
-				    {{ error }}
-			    </div>
 			    Username: <input type="text" class="form-control" placeholder="Username" name="username" autofocus required><br/>
                 Password: <input type="password" class="form-control" placeholder="Password" name="password" required><br/>
 			    <button class="btn btn-lg btn-block btn-primary" type="submit" value="submit">Sign in</button>

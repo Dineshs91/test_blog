@@ -13,7 +13,7 @@ logger = logging.getLogger(__name__)
 
 def user_login(request):
     context = RequestContext(request)
-    error = ''
+    msg = ''
     if request.user.is_authenticated():
         user = request.user
         logger.debug('user [%s] authenticated' % (user.username))
@@ -29,11 +29,11 @@ def user_login(request):
                 return HttpResponseRedirect(reverse('home'))
             else:
                 logger.debug('user [%s] inactive' % (username))
-                error = 'user inactive'
+                msg = 'user inactive'
         else:
             logger.debug('user [%s] authentication failed' % (username))
-            error = 'authentication failed'
-    return render_to_response('login/login.html', {'error': error}, context)
+            msg = 'authentication failed'
+    return render_to_response('login/login.html', {'msg': msg}, context)
     
 def user_register(request):
     context = RequestContext(request)

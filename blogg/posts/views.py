@@ -75,6 +75,8 @@ def add_post(request):
     """
     context = RequestContext(request)
     current_user = request.user
+    context_dict = {}
+    msg = ''
     if request.method == 'POST':
         form = UserPostForm(request.POST)
         if form.is_valid():
@@ -85,9 +87,12 @@ def add_post(request):
             logger.debug('Post [%s] added by [%s]', post_save.id, current_user)							
             return HttpResponseRedirect(reverse('home'))
         else:
+            msg = form.errors
             logger.debug('Post cannot be added')
     form = UserPostForm()
-    return render_to_response('posts/craft_post.html', {'form':form}, context)
+    context_dict['form'] = form    
+    context_dict['msg'] = msg
+    return render_to_response('posts/craft_post.html', context_dict, context)
 
 def profile(request, author):
     context = RequestContext(request)
@@ -124,6 +129,7 @@ def delete_post(request, post_id):
 
 @login_required
 def edit_post(request, post_id):
+    # TODO: Refactor, consistency. form.isValid() missing.
     context = RequestContext(request)
     edit_form = UserPostForm(request.POST)
     edit_post = get_post(post_id)
