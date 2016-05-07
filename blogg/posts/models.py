@@ -34,7 +34,7 @@ class UserPostCount(models.Model):
     """
     User post count
     """
-    username = models.ForeignKey(User, unique=True)
+    username = models.OneToOneField(User)
     post_count = models.IntegerField(default=0)
     
     def __unicode__(self):
