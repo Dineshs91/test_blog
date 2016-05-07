@@ -41,8 +41,11 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'widget_tweaks',
+<<<<<<< 476dc10c0b06106818904df746e75b81ddc34546
     'south',
     'haystack',
+=======
+>>>>>>> Use fixtures for testing and for initial loading
     'posts',
     'login',
 )
@@ -174,3 +177,8 @@ HAYSTACK_SIGNAL_PROCESSOR = 'haystack.signals.RealtimeSignalProcessor'
 
 POPULAR_POST_COUNT = 5
 POPULAR_AUTHOR_COUNT = 5
+
+FIXTURES_DIRS = (
+    os.path.join(PROJECT_PATH, 'posts', 'fixtures'),
+    PROJECT_PATH,
+)

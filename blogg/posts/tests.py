@@ -7,35 +7,16 @@ from services import *
 
 
 class PostsTest(TestCase):
+    fixtures = ['users.json', 'posts.json']
     # Data setup
     def setUp(self):
         # Providing access to the request factory.
         self.factory = RequestFactory()
-        
-        # Creating an user (This is the main user that will be used for all testing)
-        User.objects.create(first_name="Eric", last_name="Raymond", 
-            email="eric@mail.com", username="eric", password="eric")
-        self.user = User.objects.get(username="eric")
-        
-        # Creating a second user (This user is created only to check )
-        User.objects.create(first_name="Steve", last_name="Wozniak", 
-            email="steve@mail.com", username="steve", password="steve")
-        self.second_user = User.objects.get(username="steve")
-        
-        # Creating an user post.
-        UserPosts.objects.create(username=self.user, post_title="Test post", 
-            post_content="Test post content")
-        self.post = UserPosts.objects.get(username=self.user)
-            
-        # Creating user post likes.
-        # Actually we will add that entry while testing.
-        
-        # Creating user post count.
-        UserPostCount.objects.create(username=self.user, post_count=5)
-        
-        update_likes(self.second_user, self.post.id)
-        update_likes(self.user, self.post.id)        
-            
+
+        self.user = User.objects.get(username='steve')
+        self.post = UserPosts.objects.get(pk=1)
+
+        self.second_user = User.objects.get(username='dinesh')
         
     # Testing views
     def test_home(self):
@@ -58,7 +39,7 @@ class PostsTest(TestCase):
         self.assertTrue(len(posts) > 0)
         
     def test_get_post(self):
-        post = get_post(self.post.id)
+        post = get_post(1)
         self.assertIsNotNone(post)
         
         # Non existing post_id

@@ -1,0 +1,38 @@
+[
+{
+    "model": "auth.user",
+    "pk": 1,
+    "fields": {
+        "password": "pbkdf2_sha256$24000$YSCrIfW3MlSC$4bxDD4WSG88oFtfq+dmCPqlxucqP5S1TbxM4BSANo8s=",
+        "last_login": "2016-05-07T07:56:09.231Z",
+        "is_superuser": false,
+        "username": "steve",
+        "first_name": "steve",
+        "last_name": "jobs",
+        "email": "steve@gm.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2016-05-07T07:47:54.737Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "auth.user",
+    "pk": 2,
+    "fields": {
+        "password": "pbkdf2_sha256$24000$SYYFT11Wktrx$Gjw5l36FwPHcWBffz0rVW0GPHXzBzKzzHoooFeie8UM=",
+        "last_login": "2016-05-07T07:57:05.950Z",
+        "is_superuser": false,
+        "username": "dinesh",
+        "first_name": "dinesh",
+        "last_name": "din",
+        "email": "dinesh@gm.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2016-05-07T07:48:22.958Z",
+        "groups": [],
+        "user_permissions": []
+    }
+}
+]
